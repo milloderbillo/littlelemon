@@ -13,34 +13,39 @@ let emailKey = "email name key"
 
 struct Onboarding: View {
     
+    @State var isLoggedIn: Bool = false
     @State var email = ""
     @State var firstName = ""
     @State var lastName = ""
     
     var body: some View {
         
-        VStack{
-            
-            TextField("First Name", text: $firstName)
-            TextField("Last Name", text: $lastName)
-            TextField("Email", text: $email)
-            
-            Button {
-                if(email.isEmpty || firstName.isEmpty || lastName.isEmpty && isValidEmail(email)){
-                    
-                    UserDefaults.standard.set(firstName, forKey: firstNameKey)
-                    UserDefaults.standard.set(lastName, forKey: lastNameKey)
-                    UserDefaults.standard.set(email, forKey: emailKey)
-                    
-                }else{
-                    
+        NavigationView {
+            VStack{
+                NavigationLink(destination: Home(), isActive: $isLoggedIn) {
+                    EmptyView()
                 }
-            } label: {
-                Text("Register")
-            }
+                
+                TextField("First Name", text: $firstName)
+                TextField("Last Name", text: $lastName)
+                TextField("Email", text: $email)
+                
+                Button {
+                    if(email.isEmpty || firstName.isEmpty || lastName.isEmpty && isValidEmail(email)){
+                        
+                        UserDefaults.standard.set(firstName, forKey: firstNameKey)
+                        UserDefaults.standard.set(lastName, forKey: lastNameKey)
+                        UserDefaults.standard.set(email, forKey: emailKey)
+                    }else{
+                        isLoggedIn = true
+                    }
+                } label: {
+                    Text("Register")
+                }
 
+            }
+            .navigationTitle("Onboarding")
         }
-        
     }
     
     private func isValidEmail(_ email: String) -> Bool {
