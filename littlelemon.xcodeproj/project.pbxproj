@@ -11,6 +11,8 @@
 		390333A529D0A4FC00EFA0B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 390333A429D0A4FC00EFA0B2 /* Assets.xcassets */; };
 		390333A829D0A4FC00EFA0B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 390333A729D0A4FC00EFA0B2 /* Preview Assets.xcassets */; };
 		390333AF29D0A52700EFA0B2 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390333AE29D0A52700EFA0B2 /* Onboarding.swift */; };
+		3969713E29D4292A00375C04 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969713D29D4292A00375C04 /* Home.swift */; };
+		3969714029D4294200375C04 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969713F29D4294200375C04 /* Menu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		390333A429D0A4FC00EFA0B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		390333A729D0A4FC00EFA0B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		390333AE29D0A52700EFA0B2 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		3969713D29D4292A00375C04 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3969713F29D4294200375C04 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				390333AE29D0A52700EFA0B2 /* Onboarding.swift */,
 				390333A029D0A4FB00EFA0B2 /* littlelemonApp.swift */,
+				3969713D29D4292A00375C04 /* Home.swift */,
+				3969713F29D4294200375C04 /* Menu.swift */,
 				390333A429D0A4FC00EFA0B2 /* Assets.xcassets */,
 				390333A629D0A4FC00EFA0B2 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				390333AF29D0A52700EFA0B2 /* Onboarding.swift in Sources */,
+				3969713E29D4292A00375C04 /* Home.swift in Sources */,
+				3969714029D4294200375C04 /* Menu.swift in Sources */,
 				390333A129D0A4FB00EFA0B2 /* littlelemonApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
