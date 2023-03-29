@@ -15,5 +15,3 @@ struct littlelemonApp: App {
         }
     }
 }
-
-// this is a test
