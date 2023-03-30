@@ -13,6 +13,7 @@
 		390333AF29D0A52700EFA0B2 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390333AE29D0A52700EFA0B2 /* Onboarding.swift */; };
 		3969713E29D4292A00375C04 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969713D29D4292A00375C04 /* Home.swift */; };
 		3969714029D4294200375C04 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969713F29D4294200375C04 /* Menu.swift */; };
+		3969714229D42B2300375C04 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969714129D42B2300375C04 /* UserProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		390333AE29D0A52700EFA0B2 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		3969713D29D4292A00375C04 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3969713F29D4294200375C04 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		3969714129D42B2300375C04 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				390333AE29D0A52700EFA0B2 /* Onboarding.swift */,
 				390333A029D0A4FB00EFA0B2 /* littlelemonApp.swift */,
 				3969713D29D4292A00375C04 /* Home.swift */,
+				3969714129D42B2300375C04 /* UserProfile.swift */,
 				3969713F29D4294200375C04 /* Menu.swift */,
 				390333A429D0A4FC00EFA0B2 /* Assets.xcassets */,
 				390333A629D0A4FC00EFA0B2 /* Preview Content */,
@@ -145,6 +148,7 @@
 			files = (
 				390333AF29D0A52700EFA0B2 /* Onboarding.swift in Sources */,
 				3969713E29D4292A00375C04 /* Home.swift in Sources */,
+				3969714229D42B2300375C04 /* UserProfile.swift in Sources */,
 				3969714029D4294200375C04 /* Menu.swift in Sources */,
 				390333A129D0A4FB00EFA0B2 /* littlelemonApp.swift in Sources */,
 			);
