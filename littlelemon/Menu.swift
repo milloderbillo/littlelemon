@@ -21,8 +21,8 @@ struct Menu: View {
                    List {
                        ForEach(dishes) { dish in
                            HStack {
-                               Text("\(dish.title ?? "") - \(dish.price ?? "")")
-                               
+                               Text("\(dish.title ?? "No Data") - \(dish.price ?? "No Data")")
+
                                if let imageUrlString = dish.image, let imageUrl = URL(string: imageUrlString) {
                                    AsyncImage(url: imageUrl)
                                }
@@ -46,19 +46,26 @@ struct Menu: View {
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             } else if let data = data {
-                if let fullMenu = try? JSONDecoder().decode(JSONMenu.self, from: data) {
+                do {
+                    let fullMenu = try JSONDecoder().decode(JSONMenu.self, from: data)
                     for menuItem in fullMenu.menu {
                         let dish = Dish(context: PersistenceController.shared.container.viewContext)
                         dish.title = menuItem.title
                         dish.image = menuItem.image
                         dish.price = menuItem.price
+                        dish.category = menuItem.category
                         try? PersistenceController.shared.container.viewContext.save()
                     }
+                } catch {
+                    print("Decoding error: \(error.localizedDescription)")
                 }
+            } else {
+                print("No data and no error")
             }
         }
         task.resume()
     }
+
 }
 
 struct Menu_Previews: PreviewProvider {
