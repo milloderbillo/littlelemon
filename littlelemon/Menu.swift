@@ -26,6 +26,8 @@ struct Menu: View {
     }
     
     func getMenuData() {
+        PersistenceController.shared.clear()
+
         let serverURL = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
         let url = URL(string: serverURL)!
         let request = URLRequest(url: url)
@@ -33,7 +35,15 @@ struct Menu: View {
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             } else if let data = data {
-                let fullMenu = try? JSONDecoder().decode(JSONMenu.self, from: data)
+                if let fullMenu = try? JSONDecoder().decode(JSONMenu.self, from: data) {
+                    for menuItem in fullMenu.menu {
+                        let dish = Dish(context: PersistenceController.shared.container.viewContext)
+                        dish.title = menuItem.title
+                        dish.image = menuItem.image
+                        dish.price = menuItem.price
+                        try? PersistenceController.shared.container.viewContext.save()
+                    }
+                }
             }
         }
         task.resume()

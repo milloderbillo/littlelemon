@@ -9,6 +9,5 @@ struct MenuItem: Codable, Identifiable {
     var id = UUID()
     let title: String
     let price: String
-    let description: String
     let image: String
 }
