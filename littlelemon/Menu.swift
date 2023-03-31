@@ -11,20 +11,30 @@ import SwiftUI
 struct Menu: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    
-    var body: some View {
-        VStack{
-            Text("Little Lemon")
-            Text("Chicago")
-            Text("Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder")
-            List{
-                
-            }
-        }
-        .onAppear{
-            getMenuData()
-        }
-    }
+       
+       var body: some View {
+           VStack{
+               Text("Little Lemon")
+               Text("Chicago")
+               Text("Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder")
+               FetchedObjects(predicate: NSPredicate(value: true)) { (dishes: [Dish]) in
+                   List {
+                       ForEach(dishes) { dish in
+                           HStack {
+                               Text("\(dish.title ?? "") - \(dish.price ?? "")")
+                               
+                               if let imageUrlString = dish.image, let imageUrl = URL(string: imageUrlString) {
+                                   AsyncImage(url: imageUrl)
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+           .onAppear{
+               getMenuData()
+           }
+       }
     
     func getMenuData() {
         PersistenceController.shared.clear()
