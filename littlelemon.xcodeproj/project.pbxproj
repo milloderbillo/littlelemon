@@ -14,6 +14,8 @@
 		3969713E29D4292A00375C04 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969713D29D4292A00375C04 /* Home.swift */; };
 		3969714029D4294200375C04 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969713F29D4294200375C04 /* Menu.swift */; };
 		3969714229D42B2300375C04 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969714129D42B2300375C04 /* UserProfile.swift */; };
+		3969714429D7589B00375C04 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969714329D7589B00375C04 /* Persistence.swift */; };
+		3969714629D758A600375C04 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969714529D758A600375C04 /* FetchedObjects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		3969713D29D4292A00375C04 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3969713F29D4294200375C04 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		3969714129D42B2300375C04 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		3969714329D7589B00375C04 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3969714529D758A600375C04 /* FetchedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				390333AE29D0A52700EFA0B2 /* Onboarding.swift */,
+				3969714329D7589B00375C04 /* Persistence.swift */,
+				3969714529D758A600375C04 /* FetchedObjects.swift */,
 				390333A029D0A4FB00EFA0B2 /* littlelemonApp.swift */,
 				3969713D29D4292A00375C04 /* Home.swift */,
 				3969714129D42B2300375C04 /* UserProfile.swift */,
@@ -149,7 +155,9 @@
 				390333AF29D0A52700EFA0B2 /* Onboarding.swift in Sources */,
 				3969713E29D4292A00375C04 /* Home.swift in Sources */,
 				3969714229D42B2300375C04 /* UserProfile.swift in Sources */,
+				3969714429D7589B00375C04 /* Persistence.swift in Sources */,
 				3969714029D4294200375C04 /* Menu.swift in Sources */,
+				3969714629D758A600375C04 /* FetchedObjects.swift in Sources */,
 				390333A129D0A4FB00EFA0B2 /* littlelemonApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
