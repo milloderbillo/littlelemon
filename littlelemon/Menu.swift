@@ -24,7 +24,13 @@ struct Menu: View {
                                Text("\(dish.title ?? "No Data") - \(dish.price ?? "No Data")")
 
                                if let imageUrlString = dish.image, let imageUrl = URL(string: imageUrlString) {
-                                   AsyncImage(url: imageUrl)
+//                                   AsyncImage(url: imageUrl)
+                                   AsyncImage(url: imageUrl) { image in
+                                       image.resizable()
+                                   } placeholder: {
+                                       ProgressView()
+                                   }
+                                   .frame(width: 50, height: 50)
                                }
                            }
                        }
@@ -54,6 +60,7 @@ struct Menu: View {
                         dish.image = menuItem.image
                         dish.price = menuItem.price
                         dish.category = menuItem.category
+                        print("Image URL: \(menuItem.image)")
                         try? PersistenceController.shared.container.viewContext.save()
                     }
                 } catch {
