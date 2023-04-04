@@ -38,13 +38,12 @@ struct Menu: View {
                }
            }
            .onAppear{
+               PersistenceController.shared.clear()
                getMenuData()
            }
        }
     
     func getMenuData() {
-        PersistenceController.shared.clear()
-
         let serverURL = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
         let url = URL(string: serverURL)!
         let request = URLRequest(url: url)
@@ -61,8 +60,8 @@ struct Menu: View {
                         dish.price = menuItem.price
                         dish.category = menuItem.category
                         print("Image URL: \(menuItem.image)")
-                        try? PersistenceController.shared.container.viewContext.save()
                     }
+                    try PersistenceController.shared.container.viewContext.save()
                 } catch {
                     print("Decoding error: \(error.localizedDescription)")
                 }

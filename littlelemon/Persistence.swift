@@ -8,15 +8,27 @@ struct PersistenceController {
 
     init() {
         container = NSPersistentContainer(name: "ExampleDatabase")
-        container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-        container.loadPersistentStores(completionHandler: {_,_ in })
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
     func clear() {
-        // Delete all dishes from the store
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Dish")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        let _ = try? container.persistentStoreCoordinator.execute(deleteRequest, with: container.viewContext)
+        let fetchRequest: NSFetchRequest<Dish> = Dish.fetchRequest()
+
+        do {
+            let dishes = try container.viewContext.fetch(fetchRequest)
+            for dish in dishes {
+                container.viewContext.delete(dish)
+            }
+            try container.viewContext.save()
+            print("Cleared dishes")
+        } catch let error {
+            print("Error clearing dishes: \(error.localizedDescription)")
+        }
     }
+
 }
