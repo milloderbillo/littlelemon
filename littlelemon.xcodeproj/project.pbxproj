@@ -18,6 +18,7 @@
 		3969714629D758A600375C04 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969714529D758A600375C04 /* FetchedObjects.swift */; };
 		3969714829D75BEA00375C04 /* jsonStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969714729D75BEA00375C04 /* jsonStructs.swift */; };
 		3969714D29D75F3100375C04 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3969714B29D75F3000375C04 /* ExampleDatabase.xcdatamodeld */; };
+		396971732A00145B00375C04 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396971722A00145B00375C04 /* Styling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		3969714529D758A600375C04 /* FetchedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
 		3969714729D75BEA00375C04 /* jsonStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonStructs.swift; sourceTree = "<group>"; };
 		3969714C29D75F3100375C04 /* ExampleDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExampleDatabase.xcdatamodel; sourceTree = "<group>"; };
+		396971722A00145B00375C04 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				390333AE29D0A52700EFA0B2 /* Onboarding.swift */,
+				396971722A00145B00375C04 /* Styling.swift */,
 				3969714329D7589B00375C04 /* Persistence.swift */,
 				3969714529D758A600375C04 /* FetchedObjects.swift */,
 				3969714729D75BEA00375C04 /* jsonStructs.swift */,
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				396971732A00145B00375C04 /* Styling.swift in Sources */,
 				390333AF29D0A52700EFA0B2 /* Onboarding.swift in Sources */,
 				3969713E29D4292A00375C04 /* Home.swift in Sources */,
 				3969714229D42B2300375C04 /* UserProfile.swift in Sources */,

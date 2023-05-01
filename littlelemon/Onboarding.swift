@@ -22,14 +22,17 @@ struct Onboarding: View {
     var body: some View {
         
         NavigationView {
-            VStack{
+            VStack(spacing: 20){
                 NavigationLink(destination: Home(), isActive: $isLoggedIn) {
                     EmptyView()
                 }
                 
                 TextField("First Name", text: $firstName)
+                    .textFieldStyle(RoundTextFieldStyle())
                 TextField("Last Name", text: $lastName)
+                    .textFieldStyle(RoundTextFieldStyle())
                 TextField("Email", text: $email)
+                    .textFieldStyle(RoundTextFieldStyle())
                 
                 Button {
                     if(!email.isEmpty && !firstName.isEmpty && !lastName.isEmpty && isValidEmail(email)){
@@ -44,6 +47,7 @@ struct Onboarding: View {
                 } label: {
                     Text("Register")
                 }
+                .buttonStyle(RoundedButtonStyle())
 
             }
             .onAppear{
@@ -51,6 +55,7 @@ struct Onboarding: View {
                     isLoggedIn = true
                 }
             }
+            .padding(10)
             .navigationTitle("Onboarding")
         }
     }
