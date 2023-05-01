@@ -11,20 +11,21 @@ import SwiftUI
 struct Menu: View {
     
     @Environment(\.managedObjectContext) private var viewContext
+    @State var searchText = ""
        
        var body: some View {
            VStack{
                Text("Little Lemon")
                Text("Chicago")
                Text("Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder")
-               FetchedObjects(predicate: NSPredicate(value: true)) { (dishes: [Dish]) in
+               TextField("Search menu", text: $searchText)
+               FetchedObjects(predicate: buildPredicate()) { (dishes: [Dish]) in
                    List {
                        ForEach(dishes) { dish in
                            HStack {
                                Text("\(dish.title ?? "No Data") - \(dish.price ?? "No Data")")
 
                                if let imageUrlString = dish.image, let imageUrl = URL(string: imageUrlString) {
-//                                   AsyncImage(url: imageUrl)
                                    AsyncImage(url: imageUrl) { image in
                                        image.resizable()
                                    } placeholder: {
@@ -43,7 +44,7 @@ struct Menu: View {
            }
        }
     
-    func getMenuData() {
+    private func getMenuData() {
         let serverURL = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
         let url = URL(string: serverURL)!
         let request = URLRequest(url: url)
@@ -71,7 +72,21 @@ struct Menu: View {
         }
         task.resume()
     }
+    
+    func buildPredicate() -> NSPredicate {
+        if searchText.isEmpty {
+            return NSPredicate(value: true)
+        } else {
+            return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+        }
+    }
+    
+}
 
+func buildSortDescriptors() -> [NSSortDescriptor] {
+    return [NSSortDescriptor(key: "title",
+                             ascending: true,
+                             selector: #selector(NSString.localizedStandardCompare))]
 }
 
 struct Menu_Previews: PreviewProvider {

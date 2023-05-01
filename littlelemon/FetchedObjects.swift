@@ -10,8 +10,8 @@ struct FetchedObjects<T, Content>: View where T : NSManagedObject, Content : Vie
   var results: FetchedResults<T>{ request.wrappedValue }
     
   init(
-    predicate: NSPredicate = NSPredicate(value: true),
-    sortDescriptors: [NSSortDescriptor] = [],
+    predicate: NSPredicate,
+    sortDescriptors: [NSSortDescriptor] = buildSortDescriptors(),
     @ViewBuilder content: @escaping ([T]) -> Content
   ) {
     self.content = content
