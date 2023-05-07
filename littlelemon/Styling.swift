@@ -23,7 +23,7 @@ struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(Color(.forestGreen))
+//            .background(Color(.forestGreen))
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
@@ -40,14 +40,72 @@ struct ContentView: View {
     }
 }
 
-extension CGColor {
-    public static var forestGreen: CGColor {
-        return CGColor(red: 72/255, green: 94/255, blue: 87/255, alpha: 1.0)
+extension Color {
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let a, r, g, b: UInt64
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (1, 1, 1, 0)
+        }
+
+        self.init(
+            .sRGB,
+            red: Double(r) / 255,
+            green: Double(g) / 255,
+            blue:  Double(b) / 255,
+            opacity: Double(a) / 255
+        )
+    }
+}
+
+struct HeroView: View {
+    var body: some View {
+        ZStack{
+            Rectangle()
+                .foregroundColor(Color(hex: "#495E57"))
+
+                HStack{
+                    VStack(alignment: .leading, spacing: 0){
+                        Text("Little Lemon")
+                            .font(.custom("MarkaziText-Medium", size: 50))
+                            .foregroundColor(Color(hex: "#F4CE14"))
+                            .padding(0)
+                        Text("Chicago")
+                            .font(.custom("MarkaziText-Medium", size: 40))
+                            .foregroundColor(Color(hex: "#EDEFEE"))
+                            .padding(0)
+                            .offset(y: -10)
+                        Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
+                            .font(.custom("Karla-VariableFont_wght", size: 20))
+                            .foregroundColor(Color(hex: "#EDEFEE"))
+                            .padding(.top, 20)
+                    }
+                    Image("Hero image")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 120)
+                        .mask {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(maxHeight: 120)
+                        }
+                        .offset(y: 40)
+                }
+                .padding([.leading, .trailing, .bottom], 10)
+        }
     }
 }
 
 struct contentview_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HeroView()
     }
 }

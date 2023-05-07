@@ -15,9 +15,30 @@ struct Menu: View {
        
        var body: some View {
            VStack{
-               Text("Little Lemon")
-               Text("Chicago")
-               Text("Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder")
+               ZStack{
+                   HStack{
+                       Spacer()
+                       Image("Profile")
+                           .resizable()
+                           .scaledToFit()
+                           .frame(width: 60)
+                   }
+                   .padding()
+                   
+                   HStack{
+                       Spacer()
+                       Image("Logo")
+                           .resizable()
+                           .scaledToFit()
+                           .frame(maxWidth: 200)
+                           .padding(.trailing, 15)
+                       Spacer()
+                   }
+               }
+               
+               HeroView()
+                   .frame(maxHeight: 270)
+               
                TextField("Search menu", text: $searchText)
                FetchedObjects(predicate: buildPredicate()) { (dishes: [Dish]) in
                    List {

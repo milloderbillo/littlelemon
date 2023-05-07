@@ -46,6 +46,7 @@ struct Onboarding: View {
                     isLoggedIn = true
                 } label: {
                     Text("Register")
+                        .font(.custom("Karla-VariableFont_wght", size: 20))
                 }
                 .buttonStyle(RoundedButtonStyle())
 

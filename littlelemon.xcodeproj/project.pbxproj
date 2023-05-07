@@ -19,6 +19,8 @@
 		3969714829D75BEA00375C04 /* jsonStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969714729D75BEA00375C04 /* jsonStructs.swift */; };
 		3969714D29D75F3100375C04 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3969714B29D75F3000375C04 /* ExampleDatabase.xcdatamodeld */; };
 		396971732A00145B00375C04 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396971722A00145B00375C04 /* Styling.swift */; };
+		396971772A00EB6200375C04 /* MarkaziText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 396971762A00EB6200375C04 /* MarkaziText-Medium.ttf */; };
+		3969717A2A00EF3600375C04 /* Karla-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 396971792A00EF3600375C04 /* Karla-VariableFont_wght.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,9 @@
 		3969714729D75BEA00375C04 /* jsonStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonStructs.swift; sourceTree = "<group>"; };
 		3969714C29D75F3100375C04 /* ExampleDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExampleDatabase.xcdatamodel; sourceTree = "<group>"; };
 		396971722A00145B00375C04 /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
+		396971762A00EB6200375C04 /* MarkaziText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Medium.ttf"; sourceTree = "<group>"; };
+		396971782A00ED0900375C04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		396971792A00EF3600375C04 /* Karla-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,8 @@
 		3903339F29D0A4FB00EFA0B2 /* littlelemon */ = {
 			isa = PBXGroup;
 			children = (
+				396971782A00ED0900375C04 /* Info.plist */,
+				396971752A00EB1F00375C04 /* Fonts */,
 				390333AE29D0A52700EFA0B2 /* Onboarding.swift */,
 				396971722A00145B00375C04 /* Styling.swift */,
 				3969714329D7589B00375C04 /* Persistence.swift */,
@@ -89,6 +96,15 @@
 				390333A729D0A4FC00EFA0B2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		396971752A00EB1F00375C04 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				396971792A00EF3600375C04 /* Karla-VariableFont_wght.ttf */,
+				396971762A00EB6200375C04 /* MarkaziText-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +165,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				396971772A00EB6200375C04 /* MarkaziText-Medium.ttf in Resources */,
+				3969717A2A00EF3600375C04 /* Karla-VariableFont_wght.ttf in Resources */,
 				390333A829D0A4FC00EFA0B2 /* Preview Assets.xcassets in Resources */,
 				390333A529D0A4FC00EFA0B2 /* Assets.xcassets in Resources */,
 			);
@@ -301,6 +319,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"littlelemon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = littlelemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +348,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"littlelemon/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = littlelemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
