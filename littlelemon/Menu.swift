@@ -14,7 +14,7 @@ struct Menu: View {
     @State var searchText = ""
        
        var body: some View {
-           VStack{
+           VStack(spacing: 0){
                ZStack{
                    HStack{
                        Spacer()
@@ -39,20 +39,42 @@ struct Menu: View {
                HeroView()
                    .frame(maxHeight: 270)
                
-               TextField("Search menu", text: $searchText)
+               ZStack{
+                   Rectangle()
+                       .foregroundColor(Color(hex: "#495E57"))
+                   
+                   HStack{
+                       Image(systemName: "magnifyingglass")
+                           .foregroundColor(.white)
+                       TextField("", text: $searchText)
+                           .foregroundColor(.white)
+                           .placeholder("Search Menu", when: searchText.isEmpty)
+                       Spacer()
+                   }
+                   .padding()
+               }
+               .frame(maxHeight: 50)
+               
                FetchedObjects(predicate: buildPredicate()) { (dishes: [Dish]) in
                    List {
                        ForEach(dishes) { dish in
                            HStack {
-                               Text("\(dish.title ?? "No Data") - \(dish.price ?? "No Data")")
-
+                               
+                               VStack(alignment: .leading){
+                                   Text("\(dish.title ?? "No Data")")
+                                       .font(.custom("Karla-Regular", size: 20))
+                                   
+                                   Text("\(dish.price ?? "No Data")")
+                                       .font(.custom("Karla-Regular", size: 20))
+                               }
+                               Spacer()
                                if let imageUrlString = dish.image, let imageUrl = URL(string: imageUrlString) {
                                    AsyncImage(url: imageUrl) { image in
                                        image.resizable()
-                                   } placeholder: {
-                                       ProgressView()
-                                   }
-                                   .frame(width: 50, height: 50)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(maxWidth: 50, maxHeight: 50)
                                }
                            }
                        }

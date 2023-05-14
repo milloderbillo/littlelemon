@@ -27,6 +27,11 @@ struct Onboarding: View {
                     EmptyView()
                 }
                 
+                Image("LogoPortait")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 200)
+                
                 TextField("First Name", text: $firstName)
                     .textFieldStyle(RoundTextFieldStyle())
                 TextField("Last Name", text: $lastName)
@@ -46,10 +51,11 @@ struct Onboarding: View {
                     isLoggedIn = true
                 } label: {
                     Text("Register")
-                        .font(.custom("Karla-VariableFont_wght", size: 20))
+                        .font(.custom("Karla-Regular", size: 20))
                 }
                 .buttonStyle(RoundedButtonStyle())
-
+                
+                Spacer()
             }
             .onAppear{
                 if UserDefaults.standard.bool(forKey: isLoggedInKey){
@@ -57,7 +63,7 @@ struct Onboarding: View {
                 }
             }
             .padding(10)
-            .navigationTitle("Onboarding")
+//            .navigationTitle("Onboarding")
         }
     }
     

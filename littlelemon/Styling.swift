@@ -23,7 +23,7 @@ struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-//            .background(Color(.forestGreen))
+            .background(Color(hex: "#495E57"))
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
@@ -85,7 +85,7 @@ struct HeroView: View {
                             .padding(0)
                             .offset(y: -10)
                         Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
-                            .font(.custom("Karla-VariableFont_wght", size: 20))
+                            .font(.custom("Karla-Regular", size: 20))
                             .foregroundColor(Color(hex: "#EDEFEE"))
                             .padding(.top, 20)
                     }
@@ -104,8 +104,48 @@ struct HeroView: View {
     }
 }
 
+struct searchViewTesting: View{
+    var body: some View {
+        ZStack{
+            Rectangle()
+                .foregroundColor(Color(hex: "#495E57"))
+            HStack{
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color(hex: "#EDEFEE"))
+                Spacer()
+            }
+        }
+    }
+}
+
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
+    }
+}
+
+
 struct contentview_Previews: PreviewProvider {
     static var previews: some View {
-        HeroView()
+        ZStack{
+            searchViewTesting()
+        }
+    }
+}
+
+extension View {
+    func placeholder(
+        _ text: String,
+        when shouldShow: Bool,
+        alignment: Alignment = .leading) -> some View {
+            
+        placeholder(when: shouldShow, alignment: alignment) { Text(text).foregroundColor(.white) }
     }
 }
