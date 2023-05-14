@@ -44,14 +44,19 @@ struct Menu: View {
                        .foregroundColor(Color(hex: "#495E57"))
                    
                    HStack{
-                       Image(systemName: "magnifyingglass")
-                           .foregroundColor(.white)
+                       ZStack{
+                           Circle()
+                               .foregroundColor(Color(hex: "#EDEFEE"))
+                           Image(systemName: "magnifyingglass")
+                               .bold()
+                               .foregroundColor(Color(hex: "#333333"))
+                       }
                        TextField("", text: $searchText)
                            .foregroundColor(.white)
                            .placeholder("Search Menu", when: searchText.isEmpty)
                        Spacer()
                    }
-                   .padding()
+                   .padding([.bottom, .leading])
                }
                .frame(maxHeight: 50)
                
