@@ -21,6 +21,7 @@
 		396971732A00145B00375C04 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396971722A00145B00375C04 /* Styling.swift */; };
 		396971772A00EB6200375C04 /* MarkaziText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 396971762A00EB6200375C04 /* MarkaziText-Medium.ttf */; };
 		3969717C2A0D1E1E00375C04 /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3969717B2A0D1E1E00375C04 /* Karla-Regular.ttf */; };
+		3969717E2A112CB900375C04 /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3969717D2A112CB900375C04 /* Karla-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		396971762A00EB6200375C04 /* MarkaziText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Medium.ttf"; sourceTree = "<group>"; };
 		396971782A00ED0900375C04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3969717B2A0D1E1E00375C04 /* Karla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Regular.ttf"; sourceTree = "<group>"; };
+		3969717D2A112CB900375C04 /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				3969717B2A0D1E1E00375C04 /* Karla-Regular.ttf */,
+				3969717D2A112CB900375C04 /* Karla-Bold.ttf */,
 				396971762A00EB6200375C04 /* MarkaziText-Medium.ttf */,
 			);
 			path = Fonts;
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				396971772A00EB6200375C04 /* MarkaziText-Medium.ttf in Resources */,
+				3969717E2A112CB900375C04 /* Karla-Bold.ttf in Resources */,
 				3969717C2A0D1E1E00375C04 /* Karla-Regular.ttf in Resources */,
 				390333A829D0A4FC00EFA0B2 /* Preview Assets.xcassets in Resources */,
 				390333A529D0A4FC00EFA0B2 /* Assets.xcassets in Resources */,

@@ -36,51 +36,64 @@ struct Menu: View {
                    }
                }
                
-               HeroView()
-                   .frame(maxHeight: 270)
-               
-               ZStack{
-                   Rectangle()
-                       .foregroundColor(Color(hex: "#495E57"))
-                   
-                   HStack{
+               ScrollView(.vertical) {
+                   VStack(spacing: 0){
+                       HeroView()
+                           .frame(maxHeight: 270)
+                       
                        ZStack{
-                           Circle()
-                               .foregroundColor(Color(hex: "#EDEFEE"))
-                           Image(systemName: "magnifyingglass")
-                               .bold()
-                               .foregroundColor(Color(hex: "#333333"))
-                       }
-                       TextField("", text: $searchText)
-                           .foregroundColor(.white)
-                           .placeholder("Search Menu", when: searchText.isEmpty)
-                       Spacer()
-                   }
-                   .padding([.bottom, .leading])
-               }
-               .frame(maxHeight: 50)
-               
-               FetchedObjects(predicate: buildPredicate()) { (dishes: [Dish]) in
-                   List {
-                       ForEach(dishes) { dish in
-                           HStack {
-                               
-                               VStack(alignment: .leading){
-                                   Text("\(dish.title ?? "No Data")")
-                                       .font(.custom("Karla-Regular", size: 20))
-                                   
-                                   Text("\(dish.price ?? "No Data")")
-                                       .font(.custom("Karla-Regular", size: 20))
+                           Rectangle()
+                               .foregroundColor(Color(hex: "#495E57"))
+                           
+                           HStack{
+                               ZStack{
+                                   Circle()
+                                       .foregroundColor(Color(hex: "#EDEFEE"))
+                                   Image(systemName: "magnifyingglass")
+                                       .bold()
+                                       .foregroundColor(Color(hex: "#333333"))
                                }
+                               TextField("", text: $searchText)
+                                   .foregroundColor(.white)
+                                   .placeholder("Search Menu", when: searchText.isEmpty)
                                Spacer()
-                               if let imageUrlString = dish.image, let imageUrl = URL(string: imageUrlString) {
-                                   AsyncImage(url: imageUrl) { image in
-                                       image.resizable()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .frame(maxWidth: 50, maxHeight: 50)
+                           }
+                           .padding([.bottom, .leading])
+                       }
+                       .frame(maxHeight: 50)
+                   }
+                   
+                   FetchedObjects(predicate: buildPredicate()) { (dishes: [Dish]) in
+                       VStack (spacing: 0){
+                           ForEach(dishes) { dish in
+                               Divider()
+                               VStack{
+                                   
+                                   HStack{
+                                       Text("\(dish.title ?? "No Data")")
+                                           .font(.custom("Karla-Bold", size: 20))
+                                       Spacer()
+                                   }
+                                   
+                                   HStack(){
+                                       
+                                       Text("$"+"\(dish.price ?? "No Data")")
+                                           .font(.custom("Karla-Regular", size: 20))
+                                       
+                                       Spacer()
+                                       if let imageUrlString = dish.image, let imageUrl = URL(string: imageUrlString) {
+                                           AsyncImage(url: imageUrl) { image in
+                                               image.resizable()
+                                        } placeholder: {
+                                            ProgressView()
+                                                .frame(width: 100, height: 100)
+                                        }
+                                        .frame(maxWidth: 100, maxHeight: 100)
+                                   }
+                                   }
                                }
+                               .padding()
+                               Divider()
                            }
                        }
                    }

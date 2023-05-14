@@ -135,7 +135,7 @@ extension View {
 struct contentview_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            searchViewTesting()
+            HeroView()
         }
     }
 }
