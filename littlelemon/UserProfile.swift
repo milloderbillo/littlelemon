@@ -29,8 +29,10 @@ struct UserProfile: View {
                 UserDefaults.standard.removeObject(forKey: emailKey)
                 self.presentation.wrappedValue.dismiss()
             } label: {
-                Text("Logout")
+                Text("Log out")
+                    .font(.custom("Karla-Bold", size: 16))
             }
+            .buttonStyle(yellowButtonStyle())
             
             Spacer()
         }

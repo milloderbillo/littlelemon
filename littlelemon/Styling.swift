@@ -94,11 +94,26 @@ extension View {
     }
 }
 
+struct yellowButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding([.leading, .trailing], 100)
+            .padding([.top, .bottom], 15)
+            .background(Color(hex: "#F4CE14"))
+            .foregroundColor(Color(hex: "#333333"))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+    }
+}
 
 struct contentview_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            HeroView()
+            Button("hallo") {
+                //
+            }
+            .buttonStyle(yellowButtonStyle())
         }
     }
 }
