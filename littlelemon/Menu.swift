@@ -12,6 +12,8 @@ struct Menu: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @State var searchText = ""
+    @State var categories: Set<String> = ["Drinks"]
+    @State var selectedCategories: Set<String> = []
        
        var body: some View {
            VStack(spacing: 0){
@@ -63,11 +65,26 @@ struct Menu: View {
                        .frame(maxHeight: 50)
                    }
                    
+                   HStack {
+                       ForEach(Array(categories), id: \.self) { category in
+                           CapsuleView(category: category)
+                               .onTapGesture {
+                                   if selectedCategories.contains(category) {
+                                       selectedCategories.remove(category)
+                                   }else{
+                                       selectedCategories.insert(category)
+                                   }
+                               }
+                        }
+                   }
+                   .padding([.leading, .trailing])
+                   .padding([.top, .bottom], 5)
+
                    FetchedObjects(predicate: buildPredicate()) { (dishes: [Dish]) in
                        VStack (spacing: 0){
                            ForEach(dishes) { dish in
                                Divider()
-                               VStack{
+                               VStack(spacing: 0){
                                    
                                    HStack{
                                        Text("\(dish.title ?? "No Data")")
@@ -77,8 +94,16 @@ struct Menu: View {
                                    
                                    HStack(){
                                        
-                                       Text("$"+"\(dish.price ?? "No Data")")
-                                           .font(.custom("Karla-Regular", size: 20))
+                                       VStack (alignment: .leading){
+                                           Text("\(dish.discriptor ?? "No Data")")
+                                               .font(.custom("Karla-Regular", size: 18))
+                                               .foregroundColor(Color(hex: "#333333"))
+                                               .frame(height: 60)
+                                           Spacer()
+                                           Text("$"+"\(dish.price ?? "No Data")")
+                                               .font(.custom("Karla-Regular", size: 20))
+                                               .foregroundColor(Color(hex: "#333333"))
+                                       }
                                        
                                        Spacer()
                                        if let imageUrlString = dish.image, let imageUrl = URL(string: imageUrlString) {
@@ -86,9 +111,9 @@ struct Menu: View {
                                                image.resizable()
                                         } placeholder: {
                                             ProgressView()
-                                                .frame(width: 100, height: 100)
+                                                .frame(width: 80, height: 80)
                                         }
-                                        .frame(maxWidth: 100, maxHeight: 100)
+                                        .frame(maxWidth: 80, maxHeight: 80)
                                    }
                                    }
                                }
@@ -121,6 +146,8 @@ struct Menu: View {
                         dish.image = menuItem.image
                         dish.price = menuItem.price
                         dish.category = menuItem.category
+                        dish.discriptor = menuItem.description
+                        categories.insert(dish.category ?? "")
                         print("Image URL: \(menuItem.image)")
                     }
                     try PersistenceController.shared.container.viewContext.save()
