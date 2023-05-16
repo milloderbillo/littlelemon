@@ -14,6 +14,7 @@ struct Menu: View {
     @State var searchText = ""
     @State var categories: Set<String> = ["Drinks"]
     @State var selectedCategories: Set<String> = []
+    @State var tappedCategories: Set<String> = []
        
        var body: some View {
            VStack(spacing: 0){
@@ -66,17 +67,19 @@ struct Menu: View {
                    }
                    
                    HStack {
-                       ForEach(Array(categories), id: \.self) { category in
-                           CapsuleView(category: category)
-                               .onTapGesture {
-                                   if selectedCategories.contains(category) {
-                                       selectedCategories.remove(category)
-                                   }else{
-                                       selectedCategories.insert(category)
-                                   }
-                               }
-                        }
-                   }
+                               ForEach(Array(categories), id: \.self) { category in
+                                   CapsuleView(category: category, isTapped: tappedCategories.contains(category))
+                                       .onTapGesture {
+                                           if tappedCategories.contains(category) {
+                                               tappedCategories.remove(category)
+                                               selectedCategories.remove(category)
+                                           } else {
+                                               tappedCategories.insert(category)
+                                               selectedCategories.insert(category)
+                                           }
+                                       }
+                                }
+                            }
                    .padding([.leading, .trailing])
                    .padding([.top, .bottom], 5)
 
@@ -162,11 +165,22 @@ struct Menu: View {
     }
     
     func buildPredicate() -> NSPredicate {
+        var predicates = [NSPredicate]()
+        
         if searchText.isEmpty {
-            return NSPredicate(value: true)
+            predicates.append(NSPredicate(value: true))
         } else {
-            return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+            predicates.append(NSPredicate(format: "title CONTAINS[cd] %@", searchText))
         }
+        
+        if selectedCategories.isEmpty {
+            return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        }else{
+            predicates.append(NSPredicate(format: "category IN %@", selectedCategories))
+        }
+        
+        return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        
     }
     
 }

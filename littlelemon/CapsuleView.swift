@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CapsuleView: View {
-    @State var isTapped = false
     let category: String
+    let isTapped: Bool
     var body: some View {
         ZStack{
             Capsule()
@@ -18,9 +18,6 @@ struct CapsuleView: View {
                 .font(.custom("Karla-Bold", size: 15))
                 .padding(10)
                 .foregroundColor(Color(hex: isTapped ? "#EDEFEE" : "#333333"))
-        }
-        .onTapGesture {
-            isTapped.toggle()
         }
     }
 }
