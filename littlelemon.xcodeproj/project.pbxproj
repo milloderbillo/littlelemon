@@ -24,6 +24,7 @@
 		3969717E2A112CB900375C04 /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3969717D2A112CB900375C04 /* Karla-Bold.ttf */; };
 		396971802A13645500375C04 /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3969717F2A13645500375C04 /* HeroView.swift */; };
 		396971822A138D3900375C04 /* CapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396971812A138D3900375C04 /* CapsuleView.swift */; };
+		396971842A16A68200375C04 /* Karla-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 396971832A16A68200375C04 /* Karla-ExtraBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		3969717D2A112CB900375C04 /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
 		3969717F2A13645500375C04 /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		396971812A138D3900375C04 /* CapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleView.swift; sourceTree = "<group>"; };
+		396971832A16A68200375C04 /* Karla-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-ExtraBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				3969717B2A0D1E1E00375C04 /* Karla-Regular.ttf */,
+				396971832A16A68200375C04 /* Karla-ExtraBold.ttf */,
 				3969717D2A112CB900375C04 /* Karla-Bold.ttf */,
 				396971762A00EB6200375C04 /* MarkaziText-Medium.ttf */,
 			);
@@ -176,6 +179,7 @@
 			files = (
 				396971772A00EB6200375C04 /* MarkaziText-Medium.ttf in Resources */,
 				3969717E2A112CB900375C04 /* Karla-Bold.ttf in Resources */,
+				396971842A16A68200375C04 /* Karla-ExtraBold.ttf in Resources */,
 				3969717C2A0D1E1E00375C04 /* Karla-Regular.ttf in Resources */,
 				390333A829D0A4FC00EFA0B2 /* Preview Assets.xcassets in Resources */,
 				390333A529D0A4FC00EFA0B2 /* Assets.xcassets in Resources */,

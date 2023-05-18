@@ -107,13 +107,36 @@ struct yellowButtonStyle: ButtonStyle {
     }
 }
 
+struct greenFilledButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(Color(hex: "#495E57"))
+            .foregroundColor(Color(hex: "#EDEFEE"))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+    }
+}
+
+struct greenBorderButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(.white)
+            .border(Color(hex: "#495E57"), width: 1)
+            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+    }
+}
+
 struct contentview_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             Button("hallo") {
                 //
             }
-            .buttonStyle(yellowButtonStyle())
+            .buttonStyle(greenBorderButton())
         }
     }
 }

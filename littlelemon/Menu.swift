@@ -66,23 +66,28 @@ struct Menu: View {
                        .frame(maxHeight: 50)
                    }
                    
-                   HStack {
-                               ForEach(Array(categories), id: \.self) { category in
-                                   CapsuleView(category: category, isTapped: tappedCategories.contains(category))
-                                       .onTapGesture {
-                                           if tappedCategories.contains(category) {
-                                               tappedCategories.remove(category)
-                                               selectedCategories.remove(category)
-                                           } else {
-                                               tappedCategories.insert(category)
-                                               selectedCategories.insert(category)
+                   VStack(alignment: .leading, spacing: 0){
+                       Text("ORDER FOR DELIVERY!")
+                           .font(.custom("Karla-ExtraBold", size: 20))
+                           .padding()
+                       HStack {
+                                   ForEach(Array(categories), id: \.self) { category in
+                                       CapsuleView(category: category, isTapped: tappedCategories.contains(category))
+                                           .onTapGesture {
+                                               if tappedCategories.contains(category) {
+                                                   tappedCategories.remove(category)
+                                                   selectedCategories.remove(category)
+                                               } else {
+                                                   tappedCategories.insert(category)
+                                                   selectedCategories.insert(category)
+                                               }
                                            }
-                                       }
+                                    }
                                 }
-                            }
-                   .padding([.leading, .trailing])
-                   .padding([.top, .bottom], 5)
+                       .padding([.leading, .trailing])
+                       .padding([.top, .bottom], 5)
 
+                   }
                    FetchedObjects(predicate: buildPredicate()) { (dishes: [Dish]) in
                        VStack (spacing: 0){
                            ForEach(dishes) { dish in
