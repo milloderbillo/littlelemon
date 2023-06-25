@@ -11,9 +11,19 @@ struct UserProfile: View {
     
     @Environment(\.presentationMode) var presentation
     
-    let firstName = UserDefaults.standard.string(forKey: firstNameKey)
-    let lastName = UserDefaults.standard.string(forKey: lastNameKey)
-    let email = UserDefaults.standard.string(forKey: emailKey)
+    var firstName = UserDefaults.standard.string(forKey: firstNameKey)
+    var lastName = UserDefaults.standard.string(forKey: lastNameKey)
+    var email = UserDefaults.standard.string(forKey: emailKey)
+    
+    @State var firstNameTextField: String = ""
+    @State var lastNameTextField: String = ""
+    @State var emailTextField: String = ""
+    
+    init() {
+        firstNameTextField = self.firstName ?? ""
+        lastNameTextField = self.lastName ?? ""
+        emailTextField = self.email ?? ""
+    }
     var body: some View {
         
         VStack{
@@ -71,9 +81,42 @@ struct UserProfile: View {
                         .padding(5)
                     }
                 }
-                Text(firstName ?? "?")
-                Text(lastName ?? "?")
-                Text(email ?? "?")
+                VStack{
+                    HStack{
+                        Text("First Name")
+                            .font(.custom("Karla-Bold", size: 15))
+                            .foregroundColor(Color(hex: "#333333"))
+                        Spacer()
+                    }
+                    TextField(firstName ?? "?", text: $firstNameTextField)
+                        .textFieldStyle(RoundTextFieldStyle())
+                        .onSubmit {
+                            UserDefaults.standard.setValue(firstNameTextField, forKey: firstNameKey)
+                        }
+                    HStack{
+                        Text("Last Name")
+                            .font(.custom("Karla-Bold", size: 15))
+                            .foregroundColor(Color(hex: "#333333"))
+                        Spacer()
+                    }
+                    TextField(lastName ?? "?", text: $lastNameTextField)
+                        .textFieldStyle(RoundTextFieldStyle())
+                        .onSubmit {
+                            UserDefaults.standard.setValue(lastNameTextField, forKey: lastNameKey)
+                        }
+                    HStack{
+                        Text("Email")
+                            .font(.custom("Karla-Bold", size: 15))
+                            .foregroundColor(Color(hex: "#333333"))
+                        Spacer()
+                    }
+                    TextField(email ?? "?", text: $emailTextField)
+                        .textFieldStyle(RoundTextFieldStyle())
+                        .onSubmit {
+                            UserDefaults.standard.setValue(emailTextField, forKey: emailKey)
+                        }
+                }
+                .padding()
                 
                 Button {
                     UserDefaults.standard.setValue(false, forKey: isLoggedInKey)
@@ -87,6 +130,24 @@ struct UserProfile: View {
                 }
                 .buttonStyle(yellowButtonStyle())
                 
+                HStack{
+                    Button("Discard changes") {
+                        
+                    }
+                    .font(.custom("Karla-Regular", size: 13))
+                    .buttonStyle(greenBorderButton())
+                    .foregroundColor(Color(hex: "#333333"))
+                    .padding(5)
+                    
+                    Button("Save Changes") {
+                        UserDefaults.standard.setValue(firstNameTextField, forKey: firstNameKey)
+                        UserDefaults.standard.setValue(lastNameTextField, forKey: lastNameKey)
+                        UserDefaults.standard.setValue(emailTextField, forKey: emailKey)
+                    }
+                    .font(.custom("Karla-Bold", size: 13))
+                    .buttonStyle(greenFilledButton())
+                    .padding(5)
+                }
                 Spacer()
             }
             .overlay(
