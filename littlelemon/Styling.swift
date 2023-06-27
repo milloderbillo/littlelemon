@@ -132,12 +132,7 @@ struct greenBorderButton: ButtonStyle {
 
 struct contentview_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack{
-            Button("hallo") {
-                //
-            }
-            .buttonStyle(greenBorderButton())
-        }
+        searchViewTesting()
     }
 }
 

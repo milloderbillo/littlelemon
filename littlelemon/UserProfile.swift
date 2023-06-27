@@ -90,9 +90,6 @@ struct UserProfile: View {
                     }
                     TextField(firstName ?? "?", text: $firstNameTextField)
                         .textFieldStyle(RoundTextFieldStyle())
-                        .onSubmit {
-                            UserDefaults.standard.setValue(firstNameTextField, forKey: firstNameKey)
-                        }
                     HStack{
                         Text("Last Name")
                             .font(.custom("Karla-Bold", size: 15))
@@ -101,9 +98,6 @@ struct UserProfile: View {
                     }
                     TextField(lastName ?? "?", text: $lastNameTextField)
                         .textFieldStyle(RoundTextFieldStyle())
-                        .onSubmit {
-                            UserDefaults.standard.setValue(lastNameTextField, forKey: lastNameKey)
-                        }
                     HStack{
                         Text("Email")
                             .font(.custom("Karla-Bold", size: 15))
@@ -112,9 +106,6 @@ struct UserProfile: View {
                     }
                     TextField(email ?? "?", text: $emailTextField)
                         .textFieldStyle(RoundTextFieldStyle())
-                        .onSubmit {
-                            UserDefaults.standard.setValue(emailTextField, forKey: emailKey)
-                        }
                 }
                 .padding()
                 
@@ -143,6 +134,7 @@ struct UserProfile: View {
                         UserDefaults.standard.setValue(firstNameTextField, forKey: firstNameKey)
                         UserDefaults.standard.setValue(lastNameTextField, forKey: lastNameKey)
                         UserDefaults.standard.setValue(emailTextField, forKey: emailKey)
+                        
                     }
                     .font(.custom("Karla-Bold", size: 13))
                     .buttonStyle(greenFilledButton())

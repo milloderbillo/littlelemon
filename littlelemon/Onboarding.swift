@@ -45,7 +45,6 @@ struct Onboarding: View {
                         UserDefaults.standard.set(firstName, forKey: firstNameKey)
                         UserDefaults.standard.set(lastName, forKey: lastNameKey)
                         UserDefaults.standard.set(email, forKey: emailKey)
-                        
                     }
                     UserDefaults.standard.set(true, forKey: isLoggedInKey)
                     isLoggedIn = true
