@@ -123,7 +123,9 @@ struct UserProfile: View {
                 
                 HStack{
                     Button("Discard changes") {
-                        
+                        firstNameTextField = ""
+                        lastNameTextField = ""
+                        emailTextField = ""
                     }
                     .font(.custom("Karla-Regular", size: 13))
                     .buttonStyle(greenBorderButton())
